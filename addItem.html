@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Add Item</title>
+		<link rel="stylesheet" href="css/css.css" type="text/css"/>
+    	<meta charset="utf-8"/>
+	</head>
+	<body>
+    	<h1>Add Task</h1>
+        <form action="" method="post">
+        	<fieldset><legend>New Task</legend>
+                <ul>
+					<!--select the type of task to be done-->
+                    <li><label for="category">Category</label>
+                    	<select name="Category" id="category">                	
+                            <option value="programming">Programming</option>
+                            <option value="art">Art</option>
+                            <option value="sound">Sound</option>
+                            <option value="design">Design</option>
+                            <option value="ui">UI</option>
+                        </select></li>
+                    <!--what is the task?-->
+                    <li><label for="task">Task</label><input name="Task" type="text" id="task"></li>   
+                     <!--when does the task have to start by   --> 
+                    <li><label for="startDate">Start Date<label><input name="Date" type="date" id="startDate"></li>
+                     <!--when does the task have to end by-->
+                    <li><label for="endDate">End Date<label><input name="Date" type="date" id="endDate"></li>
+                     <!--how many hours of work is expected for the task-->
+                    <li><label for="hours">Hours of Work<label><input name="Hours" type="range" id="hours"></li>
+                     <!--long form description of the task-->
+                    <li><label for="description">Description</label><textarea name="Description" cols="" rows="" id="description"></textarea></li>
+                     <!--whether or not the task is complete-->
+                    <li><input name="Complete" type="checkbox" value="Complete" id="complete"><label for="complete">Complete</label></li>
+                </ul>
+            </fieldset>
+            <input name="Hidden" type="hidden" value="True">
+            <input name="submit" value="Submit" type="button">  
+        </form>
+        <a href="#">Clear Stored Data</a>
+        <a href="#">Display Data</a>
+	</body>
+</html>
