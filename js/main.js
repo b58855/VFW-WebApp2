@@ -2,7 +2,7 @@
 // Project 2
 // Visual Framewoks @ Full Sail University
 // Evan Combs
-window.addEventListener("DOMContentLoaded", function(){
+window.addEventListener("DOMContentLoaded", function(){	
 	//gets the element by its ID tag
 	function $(id)
 	{
@@ -12,9 +12,33 @@ window.addEventListener("DOMContentLoaded", function(){
 	
 	var importanceValue;
 	var saveData = $('submit');
-	//var clearData = $('clearData');
-	//var displayData = $('displayData');
+	var clearData = $('clearData');
+	var displayData = $('displayData');
 	
+	//hides and reveals different elements
+	function toggleDisplay(input)
+	{
+		switch(input)
+		{
+			case "on":
+				$('entryForm').style.display = 'none';
+				$('clearData').style.display = 'inline';
+				$('displayData').style.display = 'none';
+				$('addNew').style.display = 'inline';
+				break;
+				
+			case "off":
+				$('entryForm').style.display = 'block';
+				$('clearData').style.display = 'inline';
+				$('displayData').style.display = 'inline';
+				$('addNew').style.display = 'none';
+				$('data').style.display = 'none';
+				break;
+				
+			default:
+				return false;
+		}
+	}
 	
 	//finds the radio that is checked
 	function getImportanceRadio()
@@ -37,6 +61,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		//creates key value for local storage
 		var key = Math.floor(Math.random() * 10000000000);
 		getImportanceRadio();
+		
 		//gets form values, stores them in an object
 		var data = {};
 		data.category = ['Category', $('category').value];
@@ -52,18 +77,41 @@ window.addEventListener("DOMContentLoaded", function(){
 		alert('Submitted');
 	}
 	
+	//gets data from local storage, and displays it on the screen
 	function getLocalData()
 	{
+		toggleDisplay("on");
+		var addDiv = document.createElement('div');
+		addDiv.setAttribute('id', 'data');
+		var addList = document.createElement('ol');
+		addDiv.appendChild(addList);
+		document.body.appendChild(addDiv);
+		$('data').style.display = "block";
+		for(var i = 0; i < localStorage.length; i++)
+		{
+			var addItem = document.createElement('li');
+			addList.appendChild(addItem);
+			var key = localStorage.key(i);
+			var value = localStorage.getItem(key);
+			//converts local storage string back into original object
+			var object = JSON.parse(value);
+			var addSubList = document.createElement('ol');
+			addItem.appendChild(addSubList);
+			for(var j in object)
+			{
+				var addSubItem = document.createElement('li');
+				addSubList.appendChild(addSubItem);
+				var text = object[j][0]+" "+object[j][1];
+				addSubItem.innerHTML = text;
+			}
+		}
 	}
 	
 	function removeLocalData()
 	{
 	}
 	
-	//displayData.addEventListener('click', getLocalData);	
-	//clearData.addEventListener('click', removeLocalData);
+	displayData.addEventListener('click', getLocalData);	
+	clearData.addEventListener('click', removeLocalData);
 	saveData.addEventListener('click', saveToLocal);
-	
-	
-	
 });
