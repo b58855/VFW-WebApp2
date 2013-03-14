@@ -54,3 +54,7 @@ li{
 .centered {
 	text-align: center;
 }
+ol{
+	margin: 5px;	
+	border: solid thin #09F;
+}

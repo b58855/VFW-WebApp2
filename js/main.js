@@ -83,7 +83,14 @@ window.addEventListener("DOMContentLoaded", function(){
 		toggleDisplay("on");
 		var addDiv = document.createElement('div');
 		addDiv.setAttribute('id', 'data');
-		var addList = document.createElement('ol');
+		if(localStorage.length === 0)
+		{
+			var addP = document.createElement('p');
+			addDiv.appendChild(addP);
+			var pText = 'There are no list items.';
+			addP.innerHTML = pText;
+		}
+		var addList = document.createElement('ul');
 		addDiv.appendChild(addList);
 		document.body.appendChild(addDiv);
 		$('data').style.display = "block";
@@ -109,6 +116,17 @@ window.addEventListener("DOMContentLoaded", function(){
 	
 	function removeLocalData()
 	{
+		if(localStorage.length === 0)
+		{
+			alert('List was Empty');
+		}
+		else
+		{
+			localStorage.clear();
+			alert('Deleted List');
+			window.location.reload();
+			return false;
+		}
 	}
 	
 	displayData.addEventListener('click', getLocalData);	
