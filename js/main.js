@@ -14,6 +14,27 @@ window.addEventListener("DOMContentLoaded", function(){
 	var saveData = $('submit');
 	var clearData = $('clearData');
 	var displayData = $('displayData');
+	var categorySelect = ['Programming', 'Art', 'Sound', 'Design', 'UI'];
+	
+	function createSelection()
+	{
+		var formTag = document.getElementsByTagName('form');
+		var selectItem = $('select');
+		var addSelect = document.createElement('select');
+		
+		addSelect.setAttribute('id', 'category');
+		for(var i = 0; i < categorySelect.length; i++)
+		{
+			var addOption = document.createElement('option');
+			var text = categorySelect[i];
+			
+			addOption.setAttribute('value', text);
+			addOption.innerHTML = text;
+			addSelect.appendChild(addOption);
+		}
+		selectItem.appendChild(addSelect);
+	}
+	createSelection();
 	
 	//hides and reveals different elements
 	function toggleDisplay(input)
