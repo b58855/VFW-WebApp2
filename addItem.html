@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html>
 	<head>
+    	<meta name="description" content="To do list"/>
+        <meta name="keywords" content=""/>
+        <meta name="robots" content="index, follow"/>
+        <meta name="viewport" content="user-scalable=no, width=device-width"/>
+        <meta name="viewport" content="target-densitydpi=device-dpi"/>
+        <meta name="HandheldFriendly" content="True"/>
+        <meta name="MobileOptimized" content="320"/>
 		<title>Add Item</title>
 		<link rel="stylesheet" href="css/styles.css" type="text/css"/>
     	<meta charset="utf-8"/>
 	</head>
 	<body>
-    <div id="content">
     	<h1>Game Development:<br>To Do List</h1>
     	<h2>Add Task</h2>
         <form action="" method="post">
         	<fieldset><legend>Create New Task</legend>
                 <!--select the type of task to be done-->
                 <p><label for="category">Category:</label>
-                    <select name="Category" id="category" class="data">                	
+                    <select name="category" id="category" class="data">                	
                         <option value="programming">Programming</option>
                         <option value="art">Art</option>
                         <option value="sound">Sound</option>
@@ -21,30 +27,28 @@
                         <option value="ui">UI</option>
                     </select> </p>
                 <!--what is the task?-->
-                <p><label for="task">Task:</label><input name="Task" type="text" id="task" class="data"> </p>
+                <p><label for="task">Task:</label><input name="task" type="text" id="task" class="data"> </p>
                 <label for="task">Importance:</label>
                 <ul>
-                <!--whether or not the task is complete-->
-                     <li><label for="mostImportant"> Most Important:</label><input name="importance" type="radio" value="MostImportant" id="mostImportant" class="data"></li>
-                    <li><label for="important">Important:</label><input name="importance" type="radio" value="Important" id="important" class="data"></li>
-                    <li><label for="leastMmportant">Least Important:</label><input name="importance" type="radio" value="LeastImportant" id="leastImportant"></li>
+                <!--tells us how important the task is-->
+                     <li><label for="mostImportant"> Most Important:</label><input name="importance" type="radio" value="mostImportant" id="mostImportant" class="data"></li>
+                    <li><label for="important">Important:</label><input name="importance" type="radio" value="important" id="important" class="data"></li>
+                    <li><label for="leastMmportant">Least Important:</label><input name="importance" type="radio" value="leastImportant" id="leastImportant"></li>
                 </ul>
                  <!--when does the task have to start by   --> 
-                <p><label for="startDate">Start Date:</label><input name="Date" type="date" id="startDate"> </p>
+                <p><label for="startDate">Start Date:</label><input name="date" type="date" id="startDate"> </p>
                  <!--when does the task have to end by-->
-                <p><label for="endDate">End Date:</label><input name="Date" type="date" id="endDate"></p>
+                <p><label for="endDate">End Date:</label><input name="date" type="date" id="endDate"></p>
                  <!--how many hours of work is expected for the task-->
-                <p><label for="hours">Hours of Work:</label><input name="Hours" type="range" id="hours"></p>
+                <p><label for="hours">Hours of Work:</label><input name="hours" type="range" id="hours"></p>
                  <!--long form description of the task-->
-                <p><label for="description">Description:</label><textarea name="Description" cols="39" rows="5" id="description"></textarea></p>
-                <input name="submit" value="Submit" type="button"> 
+                <p><label for="description">Description:</label><textarea name="description" cols="39" rows="5" id="description"></textarea></p>
+                <input name="submit" value="submit" type="button" id="submit"> 
             </fieldset> 
         </form>
         <input name="Hidden" type="hidden" value="True">
-
-        <a href="#">Clear Stored Data</a>
-        <a href="#">Display Data</a>
-  	</div>
+        <a href="#" id="clearData">Clear Stored Data</a>
+        <a href="#" id="displayData">Display Data</a>
         <script type="text/javascript" src="js/main.js"></script>
 	</body>
 </html>
